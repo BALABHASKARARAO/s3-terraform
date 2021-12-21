@@ -3,7 +3,8 @@ resource "aws_s3_bucket" "testbucket" {
     acl = "private"
 }
 resource "aws_s3_bucket_object" "base_folder" {
-    bucket = var.s3_bucketname
+    bucket = "${var.aws_s3_bucket.testbucket.id}"
+    # we can call bucket, like here also    bucket = var.s3_bucketname
     acl     = "private"
     key     =  "${var.folder_name}/"
     
