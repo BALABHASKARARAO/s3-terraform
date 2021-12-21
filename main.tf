@@ -11,7 +11,7 @@ resource "aws_s3_bucket_object" "base_folder" {
 }
 ## the below is upload file to s3 bucket
 resource "aws_s3_bucket_object" "uploadfile" {
-  bucket = "{var.s3_bucketname/${var.folder_name}/}"
+  bucket = "{var.s3_bucketname${var.folder_name}/}"
   key     = "index.html"
   source = "./index.html"
   depends_on = [aws_s3_bucket.testbucket, aws_s3_bucket_object.base_folder]
