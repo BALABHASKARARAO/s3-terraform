@@ -12,7 +12,7 @@ resource "aws_s3_bucket_object" "uploadfile" {
   bucket = "{var.s3_bucketname/${var.folder_name}/}"
   key     = "index.html"
   source = "./index.html"
-  dependens_on = [aws_s3_bucket.testbucket aws_s3_bucket_object.base_folder]
+  dependens_on = [aws_s3_bucket.testbucket, aws_s3_bucket_object.base_folder]
 }
 
 
